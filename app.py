@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 from plotly_calplot import calplot
 import plotly.io as pio
+import os
 
 app = Flask(__name__)
 
@@ -93,4 +94,5 @@ def heatmap():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Defaults to 5000 if PORT isn't set
+    app.run(host="0.0.0.0", port=port)
