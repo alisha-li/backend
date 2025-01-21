@@ -7,6 +7,10 @@ import os
 
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "Backend is running!"
+
 @app.route('/anki-stats', methods=['GET'])
 def get_anki_stats():
     # Make a request to AnkiConnect to get stats
